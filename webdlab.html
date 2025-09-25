@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=1;
+        while(a<=10){
+            document.write("pattalchatwa <br>");
+            a++;
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+</head>
+<body>
+
+  <h2>Multiplication Table Generator</h2>
+  <label for="numberInput">Enter a number:</label>
+  <input type="number" id="numberInput" value="5">
+  <button onclick="generateTable()">Generate Table</button>
+
+  <div id="tableContainer"></div>
+
+  <script>
+    function generateTable() {
+      const number = document.getElementById('numberInput').value;
+      const container = document.getElementById('tableContainer');
+      container.innerHTML = ''; 
+
+      if (number === '' || isNaN(number)) {
+        container.innerHTML = '<p>Please enter a valid number.</p>';
+        return;
+      }
+
+      const num = parseInt(number);
+      let tableHTML = '<table>';
+      tableHTML += '<tr><th>Multiple</th><th>Result</th></tr>';
+
+      for (let i = 1; i <= 10; i++) {
+        const result = num * i;
+        
+       
+        if (result % 2 === 0) {
+          tableHTML += '<tr style="background-color: lightgreen;">';
+        } else {
+          tableHTML += '<tr style="background-color: lightcoral;">';
+        }
+        
+        tableHTML += `<td>${num} x ${i}</td>`;
+        tableHTML += `<td>${result}</td>`;
+        tableHTML += '</tr>';
+      }
+
+      tableHTML += '</table>';
+      container.innerHTML = tableHTML;
+    }
+
+    window.onload = generateTable;
+  </script>
+
+</body>
+</html>

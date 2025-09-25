@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table Even/Odd Comparison</title>
+</head>
+<body>
+  <h2>Multiplication Table Even/Odd Comparison: 11 vs 17</h2>
+  <div id="tableComparison"></div>
+
+  <script>
+    function generateComparisonTable(num1, num2) {
+      const container = document.getElementById('tableComparison');
+      container.innerHTML = '';
+
+      let tableHTML = '<table border="1" cellpadding="5">';
+      tableHTML += '<tr><th>11 Table</th><th>17 Table</th></tr>';
+      
+      let evenCount = 0;
+      let oddCount = 0;
+
+      for (let i = 1; i <= 10; i++) {
+        const val11 = num1 * i;
+        const val17 = num2 * i;
+
+        let color11 = val11 % 2 === 0 ? 'lightblue' : 'lightyellow';
+        let color17 = val17 % 2 === 0 ? 'lightblue' : 'lightyellow';
+
+        if (val11 % 2 === 0 && val17 % 2 === 0) evenCount++;
+        if (val11 % 2 !== 0 && val17 % 2 !== 0) oddCount++;
+
+        tableHTML += `<tr>
+                        <td style="background-color:${color11};">${val11}</td>
+                        <td style="background-color:${color17};">${val17}</td>
+                      </tr>`;
+      }
+
+      tableHTML += '</table>';
+      tableHTML += `<p>Both Even Numbers Count: ${evenCount}</p>`;
+      tableHTML += `<p>Both Odd Numbers Count: ${oddCount}</p>`;
+
+      container.innerHTML = tableHTML;
+    }
+
+    window.onload = function() {
+      generateComparisonTable(11, 17);
+    }
+  </script>
+</body>
+</html>
+
