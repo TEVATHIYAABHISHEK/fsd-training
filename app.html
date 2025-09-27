@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      background: #dfd8d8;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      text-align: center;
+      width: 320px;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .logo {
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    .screen {
+      font-size: 50px;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #222;
+      transition: transform 0.2s ease, color 0.3s ease;
+    }
+    .btn {
+      padding: 12px 24px;
+      margin: 8px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+    .btn-increase {
+      background: #4CAF50;
+      color: white;
+    }
+    .btn-decrease {
+      background: #f44336;
+      color: white;
+    }
+    .btn-reset {
+      background: #2196F3;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">🔥 Counter App</div>
+    <div class="screen" id="screen">0</div>
+    <button class="btn btn-decrease" onclick="decrease()">−</button>
+    <button class="btn btn-reset" onclick="reset()">Reset</button>
+    <button class="btn btn-increase" onclick="increase()">+</button>
+  </div>
+
+  <script>
+    let count = 0;
+    const screen = document.getElementById("screen");
+
+    function updateScreen() {
+      screen.textContent = count;
+      screen.style.transform = "scale(1.2)";
+      screen.style.color = count > 0 ? "#4CAF50" : count < 0 ? "#f44336" : "#222";
+      setTimeout(() => screen.style.transform = "scale(1)", 150);
+    }
+
+    function increase() {
+      count++;
+      updateScreen();
+    }
+    function decrease() {
+      count--;
+      updateScreen();
+    }
+    function reset() {
+      count = 0;
+      updateScreen();
+    }
+  </script>
+</body>
+</html>
