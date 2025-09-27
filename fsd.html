@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(210, 230, 173);
+      font-family: Arial, sans-serif;
+    }
+
+    #lucky {
+      border: 5px solid black;
+      height: 500px;
+      width: 400px;
+      background-color: rgb(180, 70, 79);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    #lucky h1 {
+      color: white;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    #im {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    #counter {
+      font-size: 50px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: yellow;
+    }
+
+    .btn {
+      height: 60px;
+      width: 60px;
+      font-size: 30px;
+      font-weight: bold;
+      border-radius: 50%;
+      cursor: pointer;
+      margin: 15px;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    #l1 {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #l2 {
+      background-color: #f44336;
+      color: white;
+    }
+
+    #second {
+      margin-top: 25px;
+    }
+
+    #im2 {
+      height: 160px;
+      width: 160px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="lucky">
+    <h1>
+      <img id="im" src="https://thumbs.dreamstime.com/b/electricity-logo-electric-icon-vector-design-template-plug-creative-concept-lightning-power-energy-element-electrical-165308073.jpg" alt="">
+      Counter App
+    </h1>
+
+    <p id="counter">0</p>
+
+    <button class="btn" id="l1">+</button>
+    <button class="btn" id="l2">-</button>
+
+    <div id="second">
+      <img id="im2" src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D" alt="">
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+    const counterDisplay = document.getElementById('counter');
+    const IB = document.getElementById('l1');
+    const DB = document.getElementById('l2');
+
+    IB.addEventListener('click', () => {
+      count++;
+      counterDisplay.textContent = count;
+    });
+
+    DB.addEventListener('click', () => {
+      count--;
+      counterDisplay.textContent = count;
+    });
+  </script>
+</body>
+
+</html>
