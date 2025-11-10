@@ -1,24 +1,15 @@
+import React from "react";
 
-import React from 'react';
-
-function Signup() {
+export default function Signup() {
   return (
-    <div>
-      <h1>Signup Page</h1>
+    <div style={{ textAlign: "center", padding: "50px" }}>
+      <h2>Signup Page</h2>
       <form>
-        <label>Name:</label><br />
-        <input type="text" placeholder="Enter your name" /><br /><br />
-
-        <label>Email:</label><br />
-        <input type="email" placeholder="Enter your email" /><br /><br />
-
-        <label>Password:</label><br />
-        <input type="password" placeholder="Enter password" /><br /><br />
-
-        <button type="submit">Signup</button>
+        <input type="text" placeholder="Username" /><br /><br />
+        <input type="email" placeholder="Email" /><br /><br />
+        <input type="password" placeholder="Password" /><br /><br />
+        <button>Signup</button>
       </form>
     </div>
   );
 }
-
-export default Signup;
